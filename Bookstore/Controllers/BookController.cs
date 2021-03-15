@@ -5,17 +5,29 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Bookstore.Entities;
-    using Bookstore.Service.Interfaces; 
+    using Bookstore.Service.Interfaces;
 
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
         private readonly IConvertingService _convertingService;
+        private readonly IAuthorService _authorService;
+        private readonly ICategoryService _categoryService;
+        private readonly IPublisherService _publisherService;
 
-        public BookController(IBookService bookService, IConvertingService convertingService)
+        public BookController(
+            IBookService bookService,
+            IConvertingService convertingService,
+            IAuthorService authorService,
+            ICategoryService categoryService,
+            IPublisherService publisherService
+         )
         {
             _bookService = bookService;
             _convertingService = convertingService;
+            _authorService = authorService;
+            _categoryService = categoryService;
+            _publisherService = publisherService;
         }
 
         public IActionResult Index()
@@ -27,33 +39,12 @@
         [HttpGet]
         public IActionResult Create()
         {
-            //List<SelectListItem> Categories = new List<SelectListItem>()
-            //{
-            //    new SelectListItem() {Text="Romance", Value="1", Selected = true},
-            //    new SelectListItem() {Text= "Drama", Value="2"},
-            //    new SelectListItem() {Text="Adventure", Value = "3" }
-            //};
-
-            //List<SelectListItem> Authors = new List<SelectListItem>()
-            //{
-            //    new SelectListItem() {Text="Agatha Christie", Value="1" , Selected = true},
-            //    new SelectListItem() {Text= "Stephen King", Value="2"},
-            //    new SelectListItem() {Text="William Shakespeare", Value = "3" }
-            //};
-
-            //List<SelectListItem> Publishers = new List<SelectListItem>()
-            //{
-            //    new SelectListItem() {Text="William Morrow Paperbacks", Value="1", Selected = true},
-            //    new SelectListItem() {Text= "Scholastic", Value="2"},
-            //    new SelectListItem() {Text="Penguin Random House", Value = "3" }
-            //};
-
             var dropdowns = _bookService.FillDropdowns();
-            int stringTest = 1;
-            DateTime dateTime = DateTime.Now;
 
-            ViewBag.ConvertedValue = _convertingService.ConvertIntegerToString(stringTest);
-            ViewBag.ConvertedValueGenericType = _convertingService.ConvertAnyToString(dateTime);
+            var categories = _categoryService.GetAllCategories();
+            var authors = _authorService.GetAllAuthors();
+            var publishers = _publisherService.GetAllPublishers();
+
             ViewBag.CategoryList = dropdowns.Item1;
             ViewBag.AuthorList = dropdowns.Item2;
             ViewBag.PublisherList = dropdowns.Item3;
@@ -66,47 +57,23 @@
         {
             //if (ModelState.IsValid)
             //{
-                _bookService.Add(book);
+            _bookService.Add(book);
             //}
 
             return RedirectToAction(nameof(Index));
-
         }
 
         // GET: Books/Edit/2
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            List<SelectListItem> Categories = new List<SelectListItem>()
-            {
-                new SelectListItem() {Text="Romance", Value="1", Selected = true},
-                new SelectListItem() {Text= "Drama", Value="2"},
-                new SelectListItem() {Text="Adventure", Value = "3" }
-            };
-
-            List<SelectListItem> Authors = new List<SelectListItem>()
-            {
-                new SelectListItem() {Text="Agatha Christie", Value="1" , Selected = true},
-                new SelectListItem() {Text= "Stephen King", Value="2"},
-                new SelectListItem() {Text="William Shakespeare", Value = "3" }
-            };
-
-            List<SelectListItem> Publishers = new List<SelectListItem>()
-            {
-                new SelectListItem() {Text="William Morrow Paperbacks", Value="1", Selected = true},
-                new SelectListItem() {Text= "Scholastic", Value="2"},
-                new SelectListItem() {Text="Penguin Random House", Value = "3" }
-            };
-            int stringTest = 1;
-            DateTime dateTime = DateTime.Now;
-
-            ViewBag.ConvertedValue = _convertingService.ConvertIntegerToString(stringTest);
-            ViewBag.ConvertedValueGenericType = _convertingService.ConvertAnyToString(dateTime);
-            ViewBag.CategoryList = Categories;
-            ViewBag.AuthorList = Authors;
-            ViewBag.PublisherList = Publishers;
-
             var book = _bookService.GetBookById(id);
+            var dropdowns = _bookService.FillDropdowns();
+
+            ViewBag.CategoryList = dropdowns.Item1;
+            ViewBag.AuthorList = dropdowns.Item2;
+            ViewBag.PublisherList = dropdowns.Item3;
+
             return View(book);
         }
 

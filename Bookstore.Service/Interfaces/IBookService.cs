@@ -17,5 +17,6 @@
         IEnumerable<Book> GetAllBooks();
 
         Tuple<List<SelectListItem>, List<SelectListItem>, List<SelectListItem>> FillDropdowns();
+       
     }
 }

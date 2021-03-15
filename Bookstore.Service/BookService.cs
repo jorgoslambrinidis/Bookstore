@@ -75,6 +75,7 @@ namespace Bookstore.Service
 
             return Tuple.Create(Categories, Authors, Publishers);
         }
+
         #endregion
 
     }
