@@ -1,6 +1,13 @@
+# Ignore Visual Studio Solution File
+*.suo
+*.user
+
 # Ignore Visual Studio Code files
 .vs/
 
-#Ignore bin/ & obj/
-bin/
-obj/
+# Ignore bin & obj folder
+bin
+obj
+
+# Ignore packages
+packages
