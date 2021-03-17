@@ -16,7 +16,7 @@
         [Display(Name = "Author")]
         public string AuthorName { get; set; }
 
-        [Display(Name = "Author ID")]
+        [Display(Name = "Author")]
         public int AuthorID { get; set; }
         public Author Author { get; set; }
 
@@ -30,7 +30,7 @@
         [Display(Name = "Publisher")]
         public string PublisherName { get; set; }
 
-        [Display(Name = "Publisher ID")]
+        [Display(Name = "Publisher")]
         public int PublisherID { get; set; }
         public Publisher Publisher { get; set; }
 
@@ -43,7 +43,7 @@
         [Display(Name = "Category")]
         public string CategoryName { get; set; }
         
-        [Display(Name = "Category ID")]
+        [Display(Name = "Category")]
         public int CategoryID { get; set; }
         public Category Category { get; set; }   
 

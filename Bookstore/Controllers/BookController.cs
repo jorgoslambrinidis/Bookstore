@@ -39,15 +39,17 @@
         [HttpGet]
         public IActionResult Create()
         {
-            var dropdowns = _bookService.FillDropdowns();
-
             var categories = _categoryService.GetAllCategories();
             var authors = _authorService.GetAllAuthors();
             var publishers = _publisherService.GetAllPublishers();
+            var dropdowns = _bookService.FillDropdowns(categories, authors, publishers);
 
             ViewBag.CategoryList = dropdowns.Item1;
             ViewBag.AuthorList = dropdowns.Item2;
             ViewBag.PublisherList = dropdowns.Item3;
+            //ViewBag.CategoryList = categories;
+            //ViewBag.AuthorList = authors;
+            //ViewBag.PublisherList = publishers;
 
             return View();
         }
@@ -68,7 +70,10 @@
         public IActionResult Edit(int id)
         {
             var book = _bookService.GetBookById(id);
-            var dropdowns = _bookService.FillDropdowns();
+            var categories = _categoryService.GetAllCategories();
+            var authors = _authorService.GetAllAuthors();
+            var publishers = _publisherService.GetAllPublishers();
+            var dropdowns = _bookService.FillDropdowns(categories, authors, publishers);
 
             ViewBag.CategoryList = dropdowns.Item1;
             ViewBag.AuthorList = dropdowns.Item2;

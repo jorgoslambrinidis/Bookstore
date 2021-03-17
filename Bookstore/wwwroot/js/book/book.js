@@ -1,5 +1,33 @@
 ﻿$(document).ready(function () {
-    console.log("Document Ready!!!");
+    console.log("Document Ready from included JS Script!!!");
+});
+
+$("#AuthorID").change(function () {
+    var optionSelected = $("option:selected", this);
+    //console.log(optionSelected);
+
+    // nacin 1 za vadenje na imeto
+    var optionName1 = optionSelected[0].innerHTML;
+    //console.log("OptionName 1: " + optionName1);
+
+    // nacin 2 za vadenje na imeto
+    var optionName2 = optionSelected.text();
+    //console.log("OptionName 2: " + optionName2);
+
+    $("#AuthorName").val(optionName2);
+    //console.log("AuthorName func check: " + $("#AuthorName").val());
+});
+
+$("#PublisherID").change(function () {
+    var optionSelected = $("option:selected", this);    
+    var optionName = optionSelected.text();
+    $("#PublisherName").val(optionName);
+});
+
+$("#CategoryID").change(function () {
+    var optionSelected = $("option:selected", this);
+    var optionName = optionSelected.text();
+    $("#CategoryName").val(optionName);
 });
 
 //$(document).ready(function () {

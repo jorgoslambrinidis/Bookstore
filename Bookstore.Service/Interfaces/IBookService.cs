@@ -16,7 +16,10 @@
 
         IEnumerable<Book> GetAllBooks();
 
-        Tuple<List<SelectListItem>, List<SelectListItem>, List<SelectListItem>> FillDropdowns();
+        Tuple<List<SelectListItem>, List<SelectListItem>, List<SelectListItem>> FillDropdowns(
+            IEnumerable<Category> categories, 
+            IEnumerable<Author> authors, 
+            IEnumerable<Publisher> publishers);
        
     }
 }
