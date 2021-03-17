@@ -1,2 +1,6 @@
 # Ignore Visual Studio Code files
 .vs/
+
+#Ignore bin/ & obj/
+bin/
+obj/
