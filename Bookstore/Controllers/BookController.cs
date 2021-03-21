@@ -93,13 +93,26 @@
         [HttpGet]
         public IActionResult Details(int id)
         {
-            return View();
+            var book = _bookService.GetBookById(id);
+            return View(book);
         }
 
-        public IActionResult Delete()
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
-            return View();
+            var book = _bookService.GetBookById(id);
+            return View(book);
         }
 
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        { 
+            // *** option 1
+            var book = _bookService.GetBookById(id);
+            _bookService.Delete(book.Id);
+            // *** option 2
+            //_bookService.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
