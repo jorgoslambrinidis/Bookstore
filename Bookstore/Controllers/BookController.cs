@@ -6,6 +6,7 @@
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Bookstore.Entities;
     using Bookstore.Service.Interfaces;
+    using Bookstore.Models;
 
     public class BookController : Controller
     {
@@ -47,18 +48,66 @@
             ViewBag.CategoryList = dropdowns.Item1;
             ViewBag.AuthorList = dropdowns.Item2;
             ViewBag.PublisherList = dropdowns.Item3;
-            //ViewBag.CategoryList = categories;
-            //ViewBag.AuthorList = authors;
-            //ViewBag.PublisherList = publishers;
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(Book book)
+        public IActionResult Create(BookViewModel model)
         {
             //if (ModelState.IsValid)
             //{
+
+            //var author = new Author();
+            //author.Name = model.AuthorNameDTO;
+            //author.Country = model.AuthorCountryDTO;
+            //author.DateBirth = model.AuthorDateBirthDTO;
+            //author.Gender = model.AuthorGenderDTO;
+            //author.Language = model.AuthorLanguageDTO;
+            //author.Popularity = model.AuthorPopularityDTO;
+            //author.ShortDescription = model.AuthorShortDescriptionDTO;
+            //_authorService.Add(author);
+            // ... category, publisher...
+
+            // *** option 1 for creating object of <book>
+            //var book = new Book()
+            //{
+            //    AuthorID = model.AuthorID,
+            //    AuthorName = model.AuthorName
+            //};
+
+            // *** option 2 for creating object of <book>
+            var book = new Book();
+            book.Title = model.BookTitle;
+            book.AuthorID = model.AuthorID;
+            book.AuthorName = model.AuthorName;
+            book.BookCoverType = model.BookCoverType;
+            book.BookType = model.BookType;
+            book.CategoryID = model.CategoryID;
+            book.CategoryName = model.CategoryName;
+            book.Copies = model.Copies;
+            book.Country = model.Country;
+            book.DateAdded = DateTime.Now;
+            book.Description = model.Description;
+            book.Edition = model.Edition;
+            book.Genre = model.Genre;
+            book.Language = model.Language;
+            book.NumberOfPages = model.NumberOfPages;
+            book.PhotoURL = model.PhotoURL;
+            book.Price = model.Price;
+            book.PublisherName = model.PublisherName;
+            book.Rating = model.Rating;
+            book.Shipping = model.Shipping;
+            book.SoldItems = model.SoldItems;
+            book.Weight = model.Weight;
+            book.YearOfIssue = model.YearOfIssue;
+            book.Dimensions = model.Dimensions;
+
+            // Calculate something ....
+            // calculate and clean category name .....
+            // var cleanedCategoryName = CleanCategory(model.CategoryNameDTO);
+            // book.CategoryName = cleanedCategoryName;
+
             _bookService.Add(book);
             //}
 
@@ -85,8 +134,7 @@
         [HttpPost]
         public IActionResult Edit(int id, Book book)
         {
-            _bookService.Edit(book);
-            //_bookService.Edit(id);
+            _bookService.Edit(book); //_bookService.Edit(id);
             return RedirectToAction(nameof(Index));
         }
 
@@ -106,12 +154,14 @@
 
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
-        { 
-            // *** option 1
+        {
+            // *** option 1 to get the book
             var book = _bookService.GetBookById(id);
             _bookService.Delete(book.Id);
-            // *** option 2
+
+            // *** option 2 to get the book
             //_bookService.Delete(id);
+
             return RedirectToAction(nameof(Index));
         }
     }

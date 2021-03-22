@@ -1,13 +1,13 @@
-﻿using Bookstore.Entities;
-using Bookstore.Repository.Interfaces;
-using Bookstore.Service.Interfaces;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Bookstore.Service
+﻿namespace Bookstore.Service
 {
+    using Bookstore.Entities;
+    using Bookstore.Repository.Interfaces;
+    using Bookstore.Service.Interfaces;
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     public class BookService : IBookService
     {
         private readonly IBookRepository _bookRepository;

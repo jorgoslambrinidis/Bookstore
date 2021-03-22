@@ -13,45 +13,23 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
-                <th>
-                    Title
-                </th>
-                <th>
-                    Author
-                </th>
-                <th>
-                    Year Of Issue
-                </th>
-                <th>
-                    Publisher
-                </th>
-                <th>
-                    Category
-                </th>
-                <th>
-                    Actions
-                </th>
+                <th> Title </th>
+                <th> Author </th>
+                <th> Year Of Issue </th>
+                <th> Publisher </th>
+                <th> Category </th>
+                <th> Actions </th>
             </tr>
         </thead>
         <tbody>
             @foreach (var book in Model)
             {
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => book.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => book.AuthorName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => book.YearOfIssue)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => book.PublisherName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => book.CategoryName)
-                    </td>
+                    <td> @Html.DisplayFor(modelItem => book.Title) </td>
+                    <td> @Html.DisplayFor(modelItem => book.AuthorName) </td>
+                    <td> @Html.DisplayFor(modelItem => book.YearOfIssue) </td>
+                    <td> @Html.DisplayFor(modelItem => book.PublisherName) </td>
+                    <td> @Html.DisplayFor(modelItem => book.CategoryName) </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-secondary btn-block">
                             <i class="fas fa-edit"></i> &nbsp; &nbsp; Edit
@@ -67,8 +45,6 @@
             }
         </tbody>
     </table>
-
-
 
 </div>
 

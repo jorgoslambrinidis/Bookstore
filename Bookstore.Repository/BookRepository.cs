@@ -1,14 +1,11 @@
-﻿using Bookstore.Data;
-using Bookstore.Entities;
-using Bookstore.Repository.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿namespace Bookstore.Repository
+{
+    using System.Collections.Generic;
+    using System.Linq;
+    using Bookstore.Data;
+    using Bookstore.Entities;
+    using Bookstore.Repository.Interfaces;
 
-namespace Bookstore.Repository
-{  
     public class BookRepository : IBookRepository
     {
         private readonly DataContext _context;

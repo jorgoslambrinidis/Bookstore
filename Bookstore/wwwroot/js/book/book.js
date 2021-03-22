@@ -6,16 +6,16 @@ $("#AuthorID").change(function () {
     var optionSelected = $("option:selected", this);
     //console.log(optionSelected);
 
-    // nacin 1 za vadenje na imeto
+    // *** 1st case for getting the name
     var optionName1 = optionSelected[0].innerHTML;
     //console.log("OptionName 1: " + optionName1);
 
-    // nacin 2 za vadenje na imeto
+    // *** 2nd case for getting the name
     var optionName2 = optionSelected.text();
     //console.log("OptionName 2: " + optionName2);
 
     $("#AuthorName").val(optionName2);
-    //console.log("AuthorName func check: " + $("#AuthorName").val());
+    //console.log("AuthorName: " + $("#AuthorName").val());
 });
 
 $("#PublisherID").change(function () {
@@ -30,66 +30,36 @@ $("#CategoryID").change(function () {
     $("#CategoryName").val(optionName);
 });
 
-//$(document).ready(function () {
-//    // Add the page method call as an onclick handler for the div.
-//    $("#Result").click(function () {
-//        $.ajax({
-//            type: "POST",
-//            url: "",
-//            data: { someParameter: "some value" },
-//            contentType: "application/json; charset=utf-8",
-//            dataType: "json",
-//            success: function (msg) {
-//                // Replace the div's content with the page method's return.
-//                $("#Result").text(msg.d);
-//            }
-//        });
-//    });
-//});
-
 $("#addNewAuthor").click(function () {
-    console.log("modal button author add new author");
+
     var data = {
-        name: "Jorgos"
+        Name: $("#AuthorNameDTO").val(),
+        Country: $("#AuthorCountryDTO").val(),
+        DateBirth: $("#AuthorDateBirthDTO").val(),
+        ShortDescription: $("#AuthorShortDescriptionDTO").val(),
+        Language: $("#AuthorLanguageDTO").val(),
+        Gender: $("#AuthorGenderDTO").val()
     };
 
     $.ajax({
         type: "POST",
         url: "/Author/CreateAuthorAJAX",
         data: data,
-        contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (msg) {
-            // Replace the div's content with the page method's return.
-            $("#Result").text(msg.d);
+        success: function (data) {
+            //console.log(data);
+            $("#AuthorID").append("<option value=" + data.id + ">" + data.name + "</option>"); 
+        },
+        error: function () {
+            alert("Error Adding New Author!");
         }
     });
 });
 
 $("#addNewPublisher").click(function () {
-    $.ajax({
-        type: "POST",
-        url: "",
-        data: { someParameter: "some value" },
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (msg) {
-            // Replace the div's content with the page method's return.
-            $("#Result").text(msg.d);
-        }
-    });
+   
 });
 
 $("#addNewCategory").click(function () {
-    $.ajax({
-        type: "POST",
-        url: "",
-        data: { someParameter: "some value" },
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (msg) {
-            // Replace the div's content with the page method's return.
-            $("#Result").text(msg.d);
-        }
-    });
+   
 });

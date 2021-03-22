@@ -1,4 +1,4 @@
-﻿/* Basic */
+﻿/* ************ Basic ************ */
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -42,8 +42,7 @@ button.accept-policy {
     line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+/* ************ Sticky footer styles ************ */
 html {
     position: relative;
     min-height: 100%;
@@ -85,7 +84,7 @@ body {
     padding-right: 11em;
 }
 
-/* Book */
+/* ************ Book ************ */
 .btn-add-new-custom {
     float: right !important;
 }
