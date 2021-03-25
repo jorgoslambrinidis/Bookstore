@@ -5,7 +5,8 @@
 $("#AuthorID").change(function () {
     var optionSelected = $("option:selected", this);
     //console.log(optionSelected);
-
+    // javascript -> var getVal = document.getElementById("AuthorName").value;
+    // jquery -> $("#AuthorName").val();
     // *** 1st case for getting the name
     var optionName1 = optionSelected[0].innerHTML;
     //console.log("OptionName 1: " + optionName1);
@@ -57,9 +58,45 @@ $("#addNewAuthor").click(function () {
 });
 
 $("#addNewPublisher").click(function () {
-   
+
+    var data = {
+        Name: $("#PublisherNameDTO").val(),
+        Country: $("#PublisherCountryDTO").val(),
+        Year: $("#PublisherYearDTO").val()
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "/Publisher/CreatePublisherAJAX",
+        data: data,
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            $("#PublisherID").append("<option value=" + data.id + ">" + data.name + "</option>");
+        },
+        error: function () {
+            alert("Error Adding New Publisher!");
+        }
+    });
 });
 
 $("#addNewCategory").click(function () {
-   
+
+    var data = {
+        Name: $("#CategoryNameDTO").val()
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "/Category/CreateCategoryAJAX",
+        data: data,
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            $("#CategoryID").append("<option value=" + data.id + ">" + data.name + "</option>");
+        },
+        error: function () {
+            alert("Error Adding New Category!");
+        }
+    });
 });

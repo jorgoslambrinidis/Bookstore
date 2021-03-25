@@ -206,7 +206,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" asp-for="PublisherNameDTO" placeholder="Enter name..." />
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <input type="text" class="form-control" asp-for="PublisherCountryDTO" placeholder="Enter country..." />
+                        </div>
+                        <div class="form-group">
+                            <label>Year</label>
+                            <input type="text" class="form-control" asp-for="PublisherYearDTO" placeholder="Enter year..." />
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -227,7 +238,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="form-group">
+                            <label>Category</label>
+                            <input type="text" class="form-control" asp-for="CategoryNameDTO" placeholder="Enter category name" />
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

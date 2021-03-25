@@ -96,6 +96,7 @@
             book.PhotoURL = model.PhotoURL;
             book.Price = model.Price;
             book.PublisherName = model.PublisherName;
+            book.PublisherID = model.PublisherID;
             book.Rating = model.Rating;
             book.Shipping = model.Shipping;
             book.SoldItems = model.SoldItems;
@@ -163,6 +164,13 @@
             //_bookService.Delete(id);
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public JsonResult GetAllBooksAJAX()
+        {
+            var allBooks = _bookService.GetAllBooks();
+            return Json(new { booksData = allBooks });
         }
     }
 }

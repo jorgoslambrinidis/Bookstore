@@ -1,4 +1,45 @@
-﻿@{
-}
+﻿@model IEnumerable<Bookstore.Entities.Author>
 
 <h1>Author</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th> Id </th>
+            <th> Name </th>
+            <th> Country </th>
+            <th> DateBirth </th>
+            <th> ShortDescription </th>
+            <th> Language </th>
+            <th> Gender </th>
+            <th> Popularity </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(modelItem => author.Id) </td>
+                <td> @Html.DisplayFor(modelItem => author.Name) </td>
+                <td> @Html.DisplayFor(modelItem => author.Country) </td>
+                <td> @Html.DisplayFor(modelItem => author.DateBirth) </td>
+                <td> @Html.DisplayFor(modelItem => author.ShortDescription) </td>
+                <td> @Html.DisplayFor(modelItem => author.Language) </td>
+                <td> @Html.DisplayFor(modelItem => author.Gender) </td>
+                <td> @Html.DisplayFor(modelItem => author.Popularity) </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@author.Id" class="btn btn-secondary btn-block">
+                        <i class="fas fa-edit"></i> &nbsp; &nbsp; Edit
+                    </a>
+                    <a asp-action="Details" asp-route-id="@author.Id" class="btn btn-info btn-block">
+                        <i class="fas fa-info"></i> &nbsp; &nbsp; Details
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@author.Id" class="btn btn-danger btn-block">
+                        <i class="fas fa-trash"></i> &nbsp; &nbsp; Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

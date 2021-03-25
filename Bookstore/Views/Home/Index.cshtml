@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Bookstore.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Bookstore";
 }
 
 <!-- Search Section -->
@@ -17,10 +18,33 @@
 
 <!-- Banner Section -->
 <div class="container-fluid">
-
+   
 </div>
 
 <!-- All Books Section-->
 <div class="container-fluid">
-
+    <h2>All Books</h2>
+    <h6><em>List of all books</em></h6>
+    <div class="row pb-5">
+        @foreach (var book in Model.AllBooksList)
+        {
+            <div class="col-12 col-md-2 mt-5">
+                <div class="card h-100">
+                    <img src="" class="img-fluid" style="max-width: 350px;"/>
+                    <div class="card-body">
+                        <h5 class="card-title"> @Html.DisplayFor(modelItem => book.Title) </h5>
+                        <h6 class=""><em>by</em> @Html.DisplayFor(modelItem => book.AuthorName) </h6>
+                        <hr />
+                        <p class="card-text">Category: @Html.DisplayFor(modelItem => book.CategoryName)</p>
+                        <p class="card-text">Genre: @Html.DisplayFor(modelItem => book.Genre )</p>
+                        <p class="card-text">Book Type: @Html.DisplayFor(modelItem => book.BookType)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/home/home.js"></script>
+} 

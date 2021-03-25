@@ -21,7 +21,12 @@
 
         public IActionResult Index()
         {
-            return View(); //PartialView(); 
+            var books = _bookService.GetAllBooks();
+            var homeViewModel = new HomeViewModel()
+            {
+                AllBooksList = books
+            };
+            return View(homeViewModel); //PartialView(); 
         }
 
         public IActionResult Privacy()
