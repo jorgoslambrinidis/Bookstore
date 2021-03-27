@@ -49,7 +49,11 @@ $("#addNewAuthor").click(function () {
         dataType: "json",
         success: function (data) {
             //console.log(data);
-            $("#AuthorID").append("<option value=" + data.id + ">" + data.name + "</option>"); 
+            if (data !== "" && data !== null) {
+                alert("Error: Author has NOT been added! Please enter data in all the fields!");
+            } else {
+                $("#AuthorID").append("<option value=" + data.id + ">" + data.name + "</option>");
+            }
         },
         error: function () {
             alert("Error Adding New Author!");
