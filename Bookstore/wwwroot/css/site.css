@@ -84,6 +84,56 @@ body {
     padding-right: 11em;
 }
 
+.bookstore-background {
+    background-image: url("../img/Books_shutterstock_hero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 20%;
+    padding-top: 5%;
+    position: relative !important;
+}
+
+.banner-text-style1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 35px;
+    padding-left: 5%;
+}
+
+.banner-text-style2 {
+    color: white;
+    text-transform: lowercase;
+    font-size: 35px;
+    padding-left: 5%;
+    margin-top: 1%;
+    font-family: Papyrus;
+}
+
+.quote-text-quote {
+    color: white;
+    padding-left: 5%;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: lighter;
+    margin-top: 1%;
+    text-align: justify;
+}
+
+.quote-text-author {
+    color: white;
+    padding-left: 5%;
+    font-size: 19px;
+    font-family: Papyrus;
+    margin-top: 1%;
+}
+
+.quote-text-tags {
+    color: #878787;
+    padding-left: 5%;
+    font-size: 14px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 1%;
+}
 /* ************ Book ************ */
 .btn-add-new-custom {
     float: right !important;

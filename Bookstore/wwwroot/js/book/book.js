@@ -48,11 +48,16 @@ $("#addNewAuthor").click(function () {
         data: data,
         dataType: "json",
         success: function (data) {
-            //console.log(data);
-            if (data !== "" && data !== null) {
-                alert("Error: Author has NOT been added! Please enter data in all the fields!");
+            console.log(data.data);
+            if (data.data == '') {
+                $('#authorModal').modal('toggle');
+                setTimeout(() => {
+                    alert("Error: Author has NOT been added! Please enter data in all the fields!");
+                }, 500); 
             } else {
-                $("#AuthorID").append("<option value=" + data.id + ">" + data.name + "</option>");
+                $("#AuthorID").append("<option value=" + data.data.id + ">" + data.data.name + "</option>");
+                $("#AuthorID").val(data.data.id);
+                $('#authorModal').modal('toggle');
             }
         },
         error: function () {

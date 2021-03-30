@@ -28,10 +28,17 @@
                 if (!string.IsNullOrEmpty(author.Name))
                 {
                     _authorService.Add(author);
+                    return Json(new { data = author });
+                }
+                else
+                {
+                    return Json(new { data = "" });
                 }
             }
-            
-            return Json(new { data = "" });
+            else
+            {
+                return Json(new { data = "" });
+            }
         }
 
         [HttpGet]
