@@ -13,5 +13,6 @@
         Book GetBookById(int id);
 
         IEnumerable<Book> GetAllBooks();
+        IEnumerable<Book> GetAllBooksWithFullRelationalData();
     }
 }

@@ -66,7 +66,7 @@
 
                         <!-- Option 3 to Populate Dropdowns -->
                         @*@Html.DropDownListFor(x => Model.PublisherID, new SelectList(Model.Publishers, "Value", "Text"),
-                            htmlAttributes: new { @class = "form-control", id = "Publisher" })*@
+                    htmlAttributes: new { @class = "form-control", id = "Publisher" })*@
                         <a class="btn btn-success btn-sm btn-add-new-custom" data-toggle="modal" data-target="#categoryModal">Add New Category</a>
                         <input asp-for="CategoryName" hidden class="form-control" />
                     </div>
@@ -133,8 +133,8 @@
                 </div>
                 <div class="row form-group">
                     <div class="col-12">
-                        <label asp-for="PhotoURL" class="control-label"></label>
-                        <input asp-for="PhotoURL" class="form-control" />
+                        @*<label asp-for="PhotoURL" class="control-label"></label>*@
+                        <input hidden asp-for="PhotoURL" class="form-control" />
                     </div>
                 </div>
                 <div class="row form-group">
@@ -143,12 +143,25 @@
                         <input asp-for="Rating" class="form-control" />
                     </div>
                 </div>
+
                 <div class="row form-group mt-3">
                     <div class="col-12">
                         <input type="submit" value="Create" class="btn btn-block btn-primary text-uppercase" />
                     </div>
                 </div>
             </form>
+
+            <!--Upload Photo-->
+            <div class="row form-group">
+                <div class="col-12">
+                    <label>Upload Photo - Book Cover</label>
+                </div>
+                <div class="col-12">
+                    <input type="file" #file accept="image/*" id="photoUpload" />
+                    <button class="btn btn-custom-upload btn-block" id="uploadPhoto">Upload Photo</button>
+                </div>
+            </div>
+
         </div>
 
         <!-- Modal Author -->

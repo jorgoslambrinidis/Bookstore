@@ -20,6 +20,7 @@
             IEnumerable<Category> categories, 
             IEnumerable<Author> authors, 
             IEnumerable<Publisher> publishers);
-       
+
+        IEnumerable<Book> GetAllBooksWithFullRelationalData();
     }
 }

@@ -42,6 +42,11 @@ button.accept-policy {
     line-height: inherit;
 }
 
+.btn-custom-upload {
+    border: 1px solid #469b88;
+    background: #dcf0eb;
+}
+
 /* ************ Sticky footer styles ************ */
 html {
     position: relative;

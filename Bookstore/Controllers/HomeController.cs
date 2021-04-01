@@ -22,6 +22,8 @@
         public IActionResult Index()
         {
             var books = _bookService.GetAllBooks();
+            var booksWithFullData = _bookService.GetAllBooksWithFullRelationalData();
+            
             var homeViewModel = new HomeViewModel()
             {
                 AllBooksList = books

@@ -43,6 +43,12 @@
             return result;
         }
 
+        public IEnumerable<Book> GetAllBooksWithFullRelationalData()
+        {
+            var result = _bookRepository.GetAllBooksWithFullRelationalData();
+            return result;
+        }
+
         public Book GetBookById(int id)
         {
             var result = _bookRepository.GetBookById(id);

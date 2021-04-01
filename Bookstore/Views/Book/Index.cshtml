@@ -26,10 +26,10 @@
             {
                 <tr>
                     <td> @Html.DisplayFor(modelItem => book.Title) </td>
-                    <td> @Html.DisplayFor(modelItem => book.AuthorName) </td>
+                    <td> <a href="#">@Html.DisplayFor(modelItem => book.AuthorName) </a> </td>
                     <td> @Html.DisplayFor(modelItem => book.YearOfIssue) </td>
-                    <td> @Html.DisplayFor(modelItem => book.PublisherName) </td>
-                    <td> @Html.DisplayFor(modelItem => book.CategoryName) </td>
+                    <td> <a href="#"> @Html.DisplayFor(modelItem => book.PublisherName) </a></td>
+                    <td> <a href="#"> @Html.DisplayFor(modelItem => book.CategoryName) </a></td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-secondary btn-block">
                             <i class="fas fa-edit"></i> &nbsp; &nbsp; Edit

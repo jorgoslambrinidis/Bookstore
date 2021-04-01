@@ -5,6 +5,7 @@
     using Bookstore.Data;
     using Bookstore.Entities;
     using Bookstore.Repository.Interfaces;
+    using Microsoft.EntityFrameworkCore;
 
     public class BookRepository : IBookRepository
     {
@@ -52,6 +53,16 @@
         {
             //var result = _context.Books.FromSqlRaw("SELECT * FROM Books").AsEnumerable();
             var result = _context.Books.AsEnumerable();
+            return result;
+        }
+
+        public IEnumerable<Book> GetAllBooksWithFullRelationalData()
+        {
+            var result = _context.Books
+                .Include(a => a.Author)
+                .Include(c => c.Category)
+                .Include(p => p.Publisher)
+                .AsEnumerable();
             return result;
         }
 

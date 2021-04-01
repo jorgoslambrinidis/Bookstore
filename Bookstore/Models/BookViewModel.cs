@@ -59,7 +59,7 @@
         [Display(Name = "Book cover type")]
         public string BookCoverType { get; set; } // Cover Type
 
-        [StringLength(500)]
+        [StringLength(1500)]
         public string Description { get; set; }
 
         [StringLength(50)]
@@ -103,7 +103,7 @@
 
         public DateTime AuthorDateBirthDTO { get; set; }
 
-        [StringLength(500)]
+        [StringLength(1500)]
         public string AuthorShortDescriptionDTO { get; set; }
 
         [StringLength(50)]
