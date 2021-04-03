@@ -1,26 +1,40 @@
 ﻿namespace Bookstore.Repository
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Bookstore.Data;
     using Bookstore.Entities;
+    using Bookstore.Entities.Logger;
     using Bookstore.Repository.Interfaces;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Logging;
 
     public class BookRepository : IBookRepository
     {
         private readonly DataContext _context;
+        private readonly ILogger<BookRepository> _logger;
 
-        public BookRepository(DataContext context)
+        public BookRepository(DataContext context, ILogger<BookRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public void AddBook(Book book)
         {
-            // "INSERT INTO ....VALUES "
-            _context.Books.Add(book);
-            _context.SaveChanges();
+            try
+            {
+                // "INSERT INTO ....VALUES "
+                _context.Books.Add(book);
+                _context.SaveChanges();
+                _logger.LogInformation(LoggerMessageDisplay.BookCreated);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LoggerMessageDisplay.BookCreatedError + " | " + ex);
+                throw;
+            }
         }
 
         public void DeleteBook(int bookId)

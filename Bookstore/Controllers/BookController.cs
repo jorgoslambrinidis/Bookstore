@@ -1,9 +1,7 @@
 ﻿namespace Bookstore.Controllers
 {
     using System;
-    using System.Collections.Generic;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Rendering;
     using Bookstore.Entities;
     using Bookstore.Service.Interfaces;
     using Bookstore.Models;
@@ -59,24 +57,25 @@
         {
             //if (ModelState.IsValid)
             //{
+                //var author = new Author();
+                //author.Name = model.AuthorNameDTO;
+                //author.Country = model.AuthorCountryDTO;
+                //author.DateBirth = model.AuthorDateBirthDTO;
+                //author.Gender = model.AuthorGenderDTO;
+                //author.Language = model.AuthorLanguageDTO;
+                //author.Popularity = model.AuthorPopularityDTO;
+                //author.ShortDescription = model.AuthorShortDescriptionDTO;
+                //_authorService.Add(author);
+                // ... category, publisher...
 
-            //var author = new Author();
-            //author.Name = model.AuthorNameDTO;
-            //author.Country = model.AuthorCountryDTO;
-            //author.DateBirth = model.AuthorDateBirthDTO;
-            //author.Gender = model.AuthorGenderDTO;
-            //author.Language = model.AuthorLanguageDTO;
-            //author.Popularity = model.AuthorPopularityDTO;
-            //author.ShortDescription = model.AuthorShortDescriptionDTO;
-            //_authorService.Add(author);
-            // ... category, publisher...
-
-            // *** option 1 for creating object of <book>
-            //var book = new Book()
-            //{
-            //    AuthorID = model.AuthorID,
-            //    AuthorName = model.AuthorName
-            //};
+                // *** option 1 for creating object of <book>
+                //var book = new Book()
+                //{
+                //    AuthorID = model.AuthorID,
+                //    AuthorName = model.AuthorName
+                //    ...
+                //    ...
+                //};
 
             // *** option 2 for creating object of <book>
             var book = new Book();
@@ -207,5 +206,7 @@
                 return StatusCode(500, "Internal Server Error: " + ex);
             }
         }
+
+
     }
 }

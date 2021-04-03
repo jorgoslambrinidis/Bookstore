@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3LHg2M/qMILEZ3Y5USZGJ9xoTMY7NBVTogEvFuqIjgXRveeO9zETJp66BZj3ooyEw1PWPLZtwSEFKLCuS0KCGA==",
+  "dgSpecHash": "hwIzm58+Q1xzi4GLj91THp4hGv+Kgvob2en8AAYiCE9Rh2OAE8NXkhxYVbfF+jzpNQ23qhs0uQ8srfmj/1eBNA==",
   "success": true,
   "projectFilePath": "C:\\Users\\jorgos.lambrinidis.BTOBET\\source\\repos\\Bookstore\\Bookstore.Repository\\Bookstore.Repository.csproj",
   "expectedPackageFiles": [
@@ -39,6 +39,9 @@
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\nlog\\4.7.9\\nlog.4.7.9.nupkg.sha512",
+    "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\nlog.extensions.logging\\1.7.2\\nlog.extensions.logging.1.7.2.nupkg.sha512",
+    "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\nlog.web.aspnetcore\\4.12.0\\nlog.web.aspnetcore.4.12.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

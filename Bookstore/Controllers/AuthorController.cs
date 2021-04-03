@@ -94,5 +94,6 @@
             _authorService.Delete(author.Id);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

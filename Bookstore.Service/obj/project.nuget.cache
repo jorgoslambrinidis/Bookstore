@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "snsxCHRsXfzg4vWgNd7PpL+Dgn7SQAzofY1Ckytssd6HD1aEmFuRQJYz594olEn0lXWKtrTGmzB3byUVO23rIw==",
+  "dgSpecHash": "qeba1rdjzlcUGyBpU1cCLCV4/M1pgh2sjoW+XUjX6PX9lvRQVs5f/HbOxUuOeSTz3HI3bvR8aSxh/LbY0P9heQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\jorgos.lambrinidis.BTOBET\\source\\repos\\Bookstore\\Bookstore.Service\\Bookstore.Service.csproj",
   "expectedPackageFiles": [
@@ -76,6 +76,9 @@
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
+    "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\nlog\\4.7.9\\nlog.4.7.9.nupkg.sha512",
+    "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\nlog.extensions.logging\\1.7.2\\nlog.extensions.logging.1.7.2.nupkg.sha512",
+    "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\nlog.web.aspnetcore\\4.12.0\\nlog.web.aspnetcore.4.12.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\jorgos.lambrinidis.BTOBET\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

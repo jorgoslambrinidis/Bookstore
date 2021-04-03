@@ -22,9 +22,22 @@
         [HttpPost]
         public JsonResult CreateCategoryAJAX(Category category)
         {
-            // TODO: have to check if the name is not null
-            _categoryService.Add(category);
-            return Json(category);
+            if (category != null)
+            {
+                if (!string.IsNullOrEmpty(category.Name))
+                {
+                    _categoryService.Add(category);
+                    return Json(new { data = category });
+                }
+                else
+                {
+                    return Json(new { data = "" });
+                }
+            }
+            else
+            {
+                return Json(new { data = "" });
+            }
         }
 
         [HttpGet]

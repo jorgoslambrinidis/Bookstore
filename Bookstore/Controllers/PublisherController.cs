@@ -22,9 +22,22 @@
         [HttpPost]
         public JsonResult CreatePublisherAJAX(Publisher publisher)
         {
-            // TODO: have to check if the some of the properties are not null
-            _publisherService.Add(publisher);
-            return Json(publisher);
+            if (publisher != null)
+            {
+                if (!string.IsNullOrEmpty(publisher.Name))
+                {
+                    _publisherService.Add(publisher);
+                    return Json(new { data = publisher });
+                }
+                else
+                {
+                    return Json(new { data = "" });
+                }
+            }
+            else
+            {
+                return Json(new { data = "" });
+            }
         }
 
         [HttpGet]
@@ -74,5 +87,6 @@
             _publisherService.Delete(publisher.Id);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

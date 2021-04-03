@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    console.log("Document Ready from included JS Script!!!");
+    console.log("Document Ready from included JS Script | book.js");
 });
 
 $("#AuthorID").change(function () {
@@ -48,21 +48,20 @@ $("#addNewAuthor").click(function () {
         data: data,
         dataType: "json",
         success: function (data) {
-            console.log(data.data);
             if (data.data == '') {
                 $('#authorModal').modal('toggle');
                 setTimeout(() => {
                     alert("Error: Author has NOT been added! Please enter data in all the fields!");
-                }, 500); 
+                }, 500);
             } else {
                 $("#AuthorID").append("<option value=" + data.data.id + ">" + data.data.name + "</option>");
                 $("#AuthorID").val(data.data.id);
+                var newOptionSelected = $("#AuthorID option:selected").text();
+                $("#AuthorName").val(newOptionSelected);
                 $('#authorModal').modal('toggle');
             }
         },
-        error: function () {
-            alert("Error Adding New Author!");
-        }
+        error: function () { alert("Error Adding New Author!"); }
     });
 });
 
@@ -80,20 +79,26 @@ $("#addNewPublisher").click(function () {
         data: data,
         dataType: "json",
         success: function (data) {
-            console.log(data);
-            $("#PublisherID").append("<option value=" + data.id + ">" + data.name + "</option>");
+            if (data.data == '') {
+                $('#publisherModal').modal('toggle');
+                setTimeout(() => {
+                    alert("Error: Publisher has NOT been added! Please enter data in all the fields!");
+                }, 500);
+            } else {
+                $("#PublisherID").append("<option value=" + data.data.id + ">" + data.data.name + "</option>");
+                $("#PublisherID").val(data.data.id);
+                var newOptionSelected = $("#PublisherID option:selected").text();
+                $("#PublisherName").val(newOptionSelected);
+                $('#publisherModal').modal('toggle');
+            }
         },
-        error: function () {
-            alert("Error Adding New Publisher!");
-        }
+        error: function () { alert("Error Adding New Publisher!"); }
     });
 });
 
 $("#addNewCategory").click(function () {
 
-    var data = {
-        Name: $("#CategoryNameDTO").val()
-    };
+    var data = { Name: $("#CategoryNameDTO").val() };
 
     $.ajax({
         type: "POST",
@@ -101,12 +106,20 @@ $("#addNewCategory").click(function () {
         data: data,
         dataType: "json",
         success: function (data) {
-            console.log(data);
-            $("#CategoryID").append("<option value=" + data.id + ">" + data.name + "</option>");
+            if (data.data == '') {
+                $('#categoryModal').modal('toggle');
+                setTimeout(() => {
+                    alert("Error: Category has NOT been added! Please enter data in all the fields!");
+                }, 500);
+            } else {
+                $("#CategoryID").append("<option value=" + data.data.id + ">" + data.data.name + "</option>");
+                $("#CategoryID").val(data.data.id);
+                var newOptionSelected = $("#CategoryID option:selected").text();
+                $("#CategoryName").val(newOptionSelected);
+                $('#categoryModal').modal('toggle');
+            }
         },
-        error: function () {
-            alert("Error Adding New Category!");
-        }
+        error: function () { alert("Error Adding New Category!"); }
     });
 });
 
@@ -114,10 +127,7 @@ $("#uploadPhoto").click(function () {
     var data = new FormData();
     var files = $("#photoUpload").get(0).files;
 
-    if (files.length > 0) {
-        data.append("UploadedImage", files[0]);
-        console.log(data);
-    }
+    if (files.length > 0) { data.append("UploadedImage", files[0]); }
 
     $.ajax({
         type: "POST",
@@ -125,13 +135,7 @@ $("#uploadPhoto").click(function () {
         data: data,
         contentType: false,
         processData: false,
-        success: function (data) {
-            console.log(data.dbPath);
-            $("#PhotoURL").val(data.dbPath);
-        },
-        error: function () {
-            alert("Error Uploading Photo!");
-        }
+        success: function (data) { $("#PhotoURL").val(data.dbPath); },
+        error: function () { alert("Error Uploading Photo!"); }
     });
-
 });
