@@ -7,6 +7,8 @@
     using Bookstore.Models;
     using System.IO;
     using System.Net.Http.Headers;
+    using Microsoft.Extensions.Logging;
+    using Bookstore.Entities.Logger;
 
     public class BookController : Controller
     {
@@ -15,13 +17,15 @@
         private readonly IAuthorService _authorService;
         private readonly ICategoryService _categoryService;
         private readonly IPublisherService _publisherService;
+        private readonly ILogger<BookController> _logger;
 
         public BookController(
             IBookService bookService,
             IConvertingService convertingService,
             IAuthorService authorService,
             ICategoryService categoryService,
-            IPublisherService publisherService
+            IPublisherService publisherService,
+            ILogger<BookController> logger
          )
         {
             _bookService = bookService;
@@ -29,11 +33,13 @@
             _authorService = authorService;
             _categoryService = categoryService;
             _publisherService = publisherService;
+            _logger = logger;
         }
 
         public IActionResult Index()
         {
             var books = _bookService.GetAllBooks();
+            _logger.LogInformation(LoggerMessageDisplay.BooksListed);
             return View(books);
         }
 
@@ -112,7 +118,7 @@
 
             _bookService.Add(book);
             //}
-
+            _logger.LogInformation(LoggerMessageDisplay.BookCreated);
             return RedirectToAction(nameof(Index));
         }
 
@@ -136,7 +142,25 @@
         [HttpPost]
         public IActionResult Edit(int id, Book book)
         {
-            _bookService.Edit(book); //_bookService.Edit(id);
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _bookService.Edit(book); //_bookService.Edit(id);
+                    _logger.LogInformation(LoggerMessageDisplay.BookEdited);
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    _logger.LogError(LoggerMessageDisplay.BookEditErrorModelStateInvalid);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LoggerMessageDisplay.BookEditNotFound + " | " + ex);
+                throw;
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

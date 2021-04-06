@@ -9,6 +9,13 @@ a {
     color: #0366d6;
 }
 
+.error {
+    color: crimson;
+    text-align: center;
+    width: 100%;
+    border-color: crimson;
+}
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

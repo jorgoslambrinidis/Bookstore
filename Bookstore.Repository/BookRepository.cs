@@ -32,7 +32,7 @@
             }
             catch (Exception ex)
             {
-                _logger.LogError(LoggerMessageDisplay.BookCreatedError + " | " + ex);
+                _logger.LogError(LoggerMessageDisplay.BookNotCreatedModelStateInvalid + " | " + ex);
                 throw;
             }
         }
