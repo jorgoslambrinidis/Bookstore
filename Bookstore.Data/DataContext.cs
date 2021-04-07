@@ -12,7 +12,6 @@
     {
         public DataContext(DbContextOptions options) : base(options) { }
 
-
         // *** have to tell the datacontext class about our models ***
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
@@ -22,14 +21,13 @@
         public DbSet<Order> Orders { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // *************** DATA SEED:
             #region Admin and Roles
             const string ADMIN_ID = "b4280b6a-0613-4cbd-a9e6-f1701e926e73";
             const string ROLE_ID = ADMIN_ID;
-            const string password = "Admin123abc";
+            const string password = "admin123abc";
 
             modelBuilder.Entity<IdentityRole>().HasData(
                 new IdentityRole
@@ -58,6 +56,7 @@
             {
                 Id = ADMIN_ID,
                 UserName = "admin@bookstore.com",
+                NormalizedUserName = "ADMIN@BOOKSTORE.COM",
                 Email = "admin@bookstore.com",
                 NormalizedEmail = "ADMIN@BOOKSTORE.COM",
                 EmailConfirmed = true,
