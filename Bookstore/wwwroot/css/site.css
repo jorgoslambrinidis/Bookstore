@@ -146,6 +146,34 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 1%;
 }
+
+/* ================= card style ================= */
+.card-text {
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card-title {
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.home-card-style {
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    -webkit-box-shadow: 10px 4px 29px -1px rgba(0,0,0,0.43);
+    -moz-box-shadow: 10px 4px 29px -1px rgba(0,0,0,0.43);
+    box-shadow: 10px 4px 29px -1px rgba(0,0,0,0.43);
+}
+
+    .home-card-style:hover {
+        transform: scale(1.1);
+        transition: ease-in-out 0.3s;
+    }
+/* ================= card style - end ================= */
+
 /* ************ Book ************ */
 .btn-add-new-custom {
     float: right !important;

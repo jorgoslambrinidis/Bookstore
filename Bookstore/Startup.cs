@@ -1,40 +1,45 @@
-using Bookstore.Data;
-using Bookstore.Repository;
-using Bookstore.Repository.Interfaces;
-using Bookstore.Service;
-using Bookstore.Service.Interfaces;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Bookstore
 {
+    using Bookstore.Data;
+    using Bookstore.Repository;
+    using Bookstore.Repository.Interfaces;
+    using Bookstore.Service;
+    using Bookstore.Service.Interfaces;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.HttpsPolicy;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity.UI;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        private readonly IWebHostEnvironment _env;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<DataContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("BookstoreConnection")));
             services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("BookstoreConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                options.UseSqlServer(Configuration["Data:MyContext:ConnectionString"]));
+            services.AddDefaultIdentity<IdentityUser>(options =>
+                 options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>() // Add identity roles for restraining the views
                 .AddEntityFrameworkStores<DataContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -57,6 +62,7 @@ namespace Bookstore
             services.AddTransient<IShoppingCartService, ShoppingCartService>();
             services.AddTransient<IPublisherService, PublisherService>();
             services.AddTransient<IConvertingService, ConvertingService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

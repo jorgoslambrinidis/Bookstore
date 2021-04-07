@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-Bookstore-D027C3EE-4505-4E82-8711-ED7BA5A7FBA9</UserSecretsId>
+    <SignAssembly>false</SignAssembly>
+    <EnvironmentName>Development</EnvironmentName>
   </PropertyGroup>
 
   <ItemGroup>
