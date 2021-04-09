@@ -51,28 +51,68 @@
         // POST: UserController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(UserModel user)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                IdentityUser appUser = new IdentityUser
+                {
+                    UserName = user.Name,
+                    Email = user.Email,
+                    EmailConfirmed = true
+                };
+
+                // istoto sto i gore
+                //IdentityUser appUser = new IdentityUser();
+                //appUser.UserName = user.Name;
+                //appUser.Email = user.Email;
+                //appUser.EmailConfirmed = true;
+
+                IdentityResult result = await _userManager.CreateAsync(appUser, user.Password);
+
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(appUser, user.RoleName);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    foreach(IdentityError error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(user);
         }
 
         // GET: UserController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(string id)
         {
-            return View();
+            IdentityUser user = await _userManager.FindByIdAsync(id);
+            var roles = _roleManager.Roles;
+
+            if(user != null)
+            {
+                // var getUserRoles = await _userManager.GetRolesAsync(user); // get every role for specific user
+                var userModel = new UserModel
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Roles = GetSelectListRoles(roles)
+                };
+                return View(userModel);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         // POST: UserController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(string id, string email, string password, string RoleName)
         {
             try
             {

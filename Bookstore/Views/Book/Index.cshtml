@@ -37,9 +37,12 @@
                         <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info btn-block">
                             <i class="fas fa-info"></i> &nbsp; &nbsp; Details
                         </a>
-                        <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger btn-block">
-                            <i class="fas fa-trash"></i> &nbsp; &nbsp; Delete
-                        </a>
+                        @if (ViewContext.HttpContext.User.IsInRole("admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger btn-block">
+                                <i class="fas fa-trash"></i> &nbsp; &nbsp; Delete
+                            </a>
+                        }
                     </td>
                 </tr>
             }

@@ -9,7 +9,9 @@
     using System.Net.Http.Headers;
     using Microsoft.Extensions.Logging;
     using Bookstore.Entities.Logger;
+    using Microsoft.AspNetCore.Authorization;
 
+    [Authorize(Roles = "admin, editor")]
     public class BookController : Controller
     {
         private readonly IBookService _bookService;
@@ -172,6 +174,7 @@
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public IActionResult Delete(int id)
         {
             var book = _bookService.GetBookById(id);
@@ -179,6 +182,7 @@
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin")]
         public IActionResult DeleteConfirmed(int id)
         {
             // *** option 1 to get the book
@@ -192,6 +196,7 @@
         }
 
         [HttpGet]
+        [Authorize(Roles = "admin, editor")]
         public JsonResult GetAllBooksAJAX()
         {
             var allBooks = _bookService.GetAllBooks();
