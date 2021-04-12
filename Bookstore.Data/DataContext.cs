@@ -1,6 +1,7 @@
 ﻿namespace Bookstore.Data
 {
     using Bookstore.Entities;
+    using Bookstore.Entities.Quotes;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@
         public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        //public DbSet<Quote> Quotes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

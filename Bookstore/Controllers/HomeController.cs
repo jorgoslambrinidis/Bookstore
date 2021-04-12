@@ -1,10 +1,14 @@
 ﻿namespace Bookstore.Controllers
 {
+    using Bookstore.Entities.Quotes;
     using Bookstore.Models;
     using Bookstore.Service.Interfaces;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json;
     using System.Diagnostics;
+    using System.Net.Http;
+    using System.Threading.Tasks;
 
     public class HomeController : Controller
     {
@@ -29,6 +33,24 @@
                 AllBooksList = books
             };
             return View(homeViewModel); //PartialView(); 
+        }
+
+        public async Task<JsonResult> GetQuotes()
+        {
+            QuotesData quotesData = new QuotesData();
+
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://opinionated-quotes-api.gigalixirapp.com/v1/quotes"))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    quotesData = JsonConvert.DeserializeObject<QuotesData>(apiResponse);
+                }
+            }
+
+            //TODO: Save to our db
+
+            return Json(quotesData);
         }
 
         public IActionResult Privacy()

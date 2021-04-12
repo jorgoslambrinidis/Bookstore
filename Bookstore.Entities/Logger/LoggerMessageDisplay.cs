@@ -70,12 +70,13 @@
         public const string UsersListed = "All users listed successfully!";
         public const string NoUsersInDB = "There is no user in the DB!";
         public const string UserFoundDisplayDetails = "User was found in the DB, show the details of the user";
-        public const string NoUserFound = "This is no user found in the DB!";
+        public const string NoUserFound = "There is no user found in the DB!";
         public const string UserCreated = "New user is created in the DB";
         public const string UserNotCreatedModelStateInvalid = "New user is NOT created in the DB, ModelState is not valid";
         public const string UserEdited = "User is edited successfully";
         public const string UserEditErrorModelStateInvalid = "User is not edited, ModelState is not valid";
         public const string UserDeleted = "User is deleted successfully";
         public const string UserDeletedError = "User is NOT deleted, error happend in process of deletion";
+        public const string UserAddedRole = "User added to Role";
     }
 }
