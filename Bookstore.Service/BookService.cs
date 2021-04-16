@@ -1,6 +1,7 @@
 ﻿namespace Bookstore.Service
 {
     using Bookstore.Entities;
+    using Bookstore.Entities.Quotes;
     using Bookstore.Repository.Interfaces;
     using Bookstore.Service.Interfaces;
     using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,6 +21,11 @@
         public void Add(Book book)
         {
             _bookRepository.AddBook(book);
+        }
+
+        public void AddQuote(QuoteMap quote)
+        {
+            _bookRepository.AddQuote(quote);
         }
 
         public void Delete(int bookId)

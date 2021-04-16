@@ -45,10 +45,21 @@
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     quotesData = JsonConvert.DeserializeObject<QuotesData>(apiResponse);
+                    
+                    //foreach (var quote in quotesData.Quotes)
+                    //{
+                    //    QuoteMap newQuote = new QuoteMap()
+                    //    {
+                    //        Author = quote.Author,
+                    //        Lang = quote.Lang,
+                    //        Quote = quote.quote,
+                    //        Tags = string.Join(",", quote.Tags.ToArray())
+                    //    };
+
+                    //    _bookService.AddQuote(newQuote);
+                    //}
                 }
             }
-
-            //TODO: Save to our db
 
             return Json(quotesData);
         }
@@ -68,5 +79,9 @@
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        #region Helper Methods
+
+        #endregion
     }
 }

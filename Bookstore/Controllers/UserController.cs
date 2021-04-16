@@ -1,15 +1,15 @@
-﻿namespace Bookstore.Controllers
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Rendering;
-    using Microsoft.Extensions.Logging;
-    using Bookstore.Areas.Identity;
-    using Bookstore.Entities.Logger;
-    
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
+using Bookstore.Areas.Identity;
+using Bookstore.Entities.Logger;
+
+namespace Bookstore.Controllers
+{    
     public class UserController : Controller
     {
         private UserManager<IdentityUser> _userManager;

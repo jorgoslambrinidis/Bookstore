@@ -1,6 +1,7 @@
 ﻿namespace Bookstore.Repository.Interfaces
 {
     using Bookstore.Entities;
+    using Bookstore.Entities.Quotes;
     using System.Collections.Generic;
 
     public interface IBookRepository
@@ -14,5 +15,7 @@
 
         IEnumerable<Book> GetAllBooks();
         IEnumerable<Book> GetAllBooksWithFullRelationalData();
+
+        void AddQuote(QuoteMap quote);
     }
 }

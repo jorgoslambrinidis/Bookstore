@@ -20,8 +20,8 @@
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Wishlist> Wishlists { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
-        //public DbSet<Quote> Quotes { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }      
+        public DbSet<QuoteMap> Quotes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

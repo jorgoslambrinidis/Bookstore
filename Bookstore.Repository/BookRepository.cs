@@ -6,6 +6,7 @@
     using Bookstore.Data;
     using Bookstore.Entities;
     using Bookstore.Entities.Logger;
+    using Bookstore.Entities.Quotes;
     using Bookstore.Repository.Interfaces;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;
@@ -33,6 +34,21 @@
             catch (Exception ex)
             {
                 _logger.LogError(LoggerMessageDisplay.BookNotCreatedModelStateInvalid + " | " + ex);
+                throw;
+            }
+        }
+
+        public void AddQuote(QuoteMap quote)
+        {
+            try
+            {
+                _context.Quotes.Add(quote);
+                _context.SaveChanges();
+                _logger.LogInformation("Quote Added to DB");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Quote NOT Added to DB | " + ex);
                 throw;
             }
         }

@@ -80,6 +80,9 @@ namespace Bookstore.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
+                    // *** add guest role to newly registered users
+                    await _userManager.AddToRoleAsync(user, "guest");
+
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
