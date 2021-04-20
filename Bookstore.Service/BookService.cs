@@ -1,6 +1,7 @@
 ﻿namespace Bookstore.Service
 {
     using Bookstore.Entities;
+    using Bookstore.Entities.API.Models;
     using Bookstore.Entities.Quotes;
     using Bookstore.Repository.Interfaces;
     using Bookstore.Service.Interfaces;
@@ -46,6 +47,12 @@
         public IEnumerable<Book> GetAllBooks()
         {
             var result = _bookRepository.GetAllBooks();
+            return result;
+        }
+
+        public IEnumerable<BookApiDTO> GetAllBooksAPI()
+        {
+            var result = _bookRepository.GetAllBooksAPI();
             return result;
         }
 

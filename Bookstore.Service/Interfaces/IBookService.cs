@@ -1,6 +1,7 @@
 ﻿namespace Bookstore.Service.Interfaces
 {
     using Bookstore.Entities;
+    using Bookstore.Entities.API.Models;
     using Bookstore.Entities.Quotes;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using System;
@@ -16,6 +17,8 @@
         Book GetBookById(int id);
 
         IEnumerable<Book> GetAllBooks();
+
+        IEnumerable<BookApiDTO> GetAllBooksAPI();
 
         Tuple<List<SelectListItem>, List<SelectListItem>, List<SelectListItem>> FillDropdowns(
             IEnumerable<Category> categories, 

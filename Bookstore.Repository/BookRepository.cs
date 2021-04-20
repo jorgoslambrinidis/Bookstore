@@ -5,6 +5,7 @@
     using System.Linq;
     using Bookstore.Data;
     using Bookstore.Entities;
+    using Bookstore.Entities.API.Models;
     using Bookstore.Entities.Logger;
     using Bookstore.Entities.Quotes;
     using Bookstore.Repository.Interfaces;
@@ -84,6 +85,25 @@
             //var result = _context.Books.FromSqlRaw("SELECT * FROM Books").AsEnumerable();
             var result = _context.Books.AsEnumerable();
             return result;
+        }
+
+        public IEnumerable<BookApiDTO> GetAllBooksAPI()
+        {         
+            var bookList = new List<BookApiDTO>();
+            var result = _context.Books.AsEnumerable();
+
+            foreach (var book in result)
+            {
+                var bookDTO = new BookApiDTO()
+                {
+                    Title = book.Title,
+                    Author = book.AuthorName,
+                    Publisher = book.PublisherName
+                };
+                bookList.Add(bookDTO);
+            }
+
+            return bookList.AsEnumerable();
         }
 
         public IEnumerable<Book> GetAllBooksWithFullRelationalData()

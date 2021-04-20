@@ -11,11 +11,18 @@
     //        alert("Error getting all books!");
     //    }
     //})
+
     GetQuotes();
+
+    //GetRandomBook(); // uncomment this to ping the internal API for random book
 
     setInterval(() => {
         GetQuotes();
     }, 5000);
+
+    //setInterval(() => {  // uncomment this function to ping API every 7 sec
+    //    GetRandomBook();
+    //}, 7000);
 
 });
 
@@ -39,7 +46,46 @@ function GetQuotes() {
             $("#quote_tags").text(tagsString);         
         },
         error: function () {
-            alert("Error");
+            console.log("error");
+
+            // ******** error handling -> in case of external API stops, ping in our DB
+
+            //$.ajax({
+            //    type: "GET",
+            //    url: "https://localhost:6001/api/quote/randomquote",
+            //    success: function (data) {
+            //        $("#quote").text("\" " + data.quotes[0].quote + "\"");
+            //        $("#quote_author").text(data.quotes[0].author);
+
+            //        var quoteTags = data.quotes[0].tags;
+            //        var tagsString = "";
+
+            //        quoteTags.forEach(item => {
+            //            var lastItem = quoteTags[quoteTags.length - 1];
+            //            tagsString += item == lastItem ? item + "" : item + ","
+            //        });
+
+            //        $("#quote_tags").text(tagsString);         
+            //    },
+            //    error: function () {
+            //        alert("Error");
+            //    }
+            //})
         }
     })
 }
+
+function GetRandomBook() {
+    $.ajax({
+        type: "GET",
+        url: "https://localhost:6001/api/book/randombook",
+        success: function (data) {
+            console.log(data); 
+        },
+        error: function () {
+            //alert("Error");
+            console.log("Error");
+        }
+    })
+}
+

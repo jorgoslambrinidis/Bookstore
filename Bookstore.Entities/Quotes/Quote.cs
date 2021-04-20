@@ -8,6 +8,7 @@
         [JsonPropertyName("tags")]
         public List<string> Tags { get; set; }
 
+        //[JsonIgnore]
         public string quote { get; set; }
 
         [JsonPropertyName("lang")]

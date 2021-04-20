@@ -16,7 +16,7 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>Bookstore.Data.DataContext</WebStackScaffolding_DbContextTypeFullName>
     <ShowAllFiles>false</ShowAllFiles>
-    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <ActiveDebugProfile>Bookstore</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>Default Settings</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

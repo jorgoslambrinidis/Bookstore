@@ -1,10 +1,88 @@
-﻿/* ************ Basic ************ */
+﻿/* ---------------------------------GOOGLE FONTS-------------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+/* roboto-300 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/roboto-v20-latin-300.eot"); /* IE9 Compat Modes */
+    src: local(""), url("../fonts/roboto-v20-latin-300.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/roboto-v20-latin-300.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/roboto-v20-latin-300.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/roboto-v20-latin-300.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/roboto-v20-latin-300.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+
+/* roboto-regular - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/roboto-v20-latin-regular.eot"); /* IE9 Compat Modes */
+    src: local(""), url("../fonts/roboto-v20-latin-regular.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/roboto-v20-latin-regular.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/roboto-v20-latin-regular.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/roboto-v20-latin-regular.ttf") format("truetype"),
+    /* Safari, Android, iOS */
+    url("../fonts/roboto-v20-latin-regular.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+
+/* roboto-500 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/roboto-v20-latin-500.eot"); /* IE9 Compat Modes */
+    src: local(""), url("../fonts/roboto-v20-latin-500.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/roboto-v20-latin-500.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/roboto-v20-latin-500.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/roboto-v20-latin-500.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/roboto-v20-latin-500.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+
+/* roboto-700 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/roboto-v20-latin-700.eot"); /* IE9 Compat Modes */
+    src: local(""), url("../fonts/roboto-v20-latin-700.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/roboto-v20-latin-700.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/roboto-v20-latin-700.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/roboto-v20-latin-700.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/roboto-v20-latin-700.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+
+/* roboto-900 - latin */
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../fonts/roboto-v20-latin-900.eot"); /* IE9 Compat Modes */
+    src: local(""), url("../fonts/roboto-v20-latin-900.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("../fonts/roboto-v20-latin-900.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("../fonts/roboto-v20-latin-900.woff") format("woff"),
+    /* Modern Browsers */ url("../fonts/roboto-v20-latin-900.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("../fonts/roboto-v20-latin-900.svg#Roboto") format("svg"); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: "Papyrus";
+    src: url("../fonts/papyrus.ttf");
+}
+
+/* ---------------------------------THE CSS STYLING-------------------------------------------- */
+
+/*Basic*/
 a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
 }
 
+/* Provide sufficient contrast against white background */
 a {
     color: #0366d6;
 }
@@ -28,9 +106,14 @@ a {
     border-color: #1861ac;
 }
 
+header {
+    margin-bottom: 65px;
+}
+
 html {
     font-size: 14px;
 }
+
 
 .border-top {
     border-top: 1px solid #e5e5e5;
@@ -54,7 +137,8 @@ button.accept-policy {
     background: #dcf0eb;
 }
 
-/* ************ Sticky footer styles ************ */
+/* Sticky footer styles
+-------------------------------------------------- */
 html {
     position: relative;
     min-height: 100%;
@@ -65,60 +149,84 @@ body {
     margin-bottom: 60px;
 }
 
-/* ************ Search (in Home) ************ */
+/* ******* Search (in Home) ******* */
+
 .search-main {
     position: relative;
-    padding-left: 5em !important;
-    padding-right: 5em !important;
-}
-
-.search-btn {
-    position: absolute !important;
-    top: 23px;
-    right: 6em;
-    padding-left: 4em;
-    padding-right: 4em;
 }
 
 .search-btn-icon {
     position: absolute !important;
-    top: 21px;
-    left: 5em;
+    top: 20px;
+    margin-left: 5px;
     font-size: 1.2em;
-    background-color: #eaeaea;
+    background-color: #EAEAEA;
 }
 
 .search-box-style {
     height: 50px;
-    font-size: 1.5em;
-    background-color: #eaeaea;
-    padding-left: 3em;
-    padding-right: 11em;
+    background-color: #EAEAEA;
+    padding-left: 3.5rem;
+}
+
+@media (max-width: 800px) {
+    .search-btn {
+        margin-top: 5px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 800px) {
+    .search-btn {
+        position: absolute !important;
+        top: 23px;
+        right: 1.5em;
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .search-box-style {
+        padding-right: 12rem;
+    }
+}
+
+/* ******* Home INDEX ******* */
+
+.banner-container {
+    position: relative;
+    min-height: 500px;
 }
 
 .bookstore-background {
     background-image: url("../img/Books_shutterstock_hero.jpg");
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    padding-bottom: 20%;
-    padding-top: 5%;
-    position: relative !important;
+    position: absolute !important;
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    filter: blur(5px);
 }
 
 .banner-text-style1 {
     color: white;
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: 30px;
     padding-left: 5%;
+    font-family: Papyrus;
+    text-shadow: 0 1px 1px #505050, -1px 0px 1px #767676, -2px 3px 1px #000000, -3px 4px 1px #000000, -4px 4px 1px #000000;
 }
 
 .banner-text-style2 {
     color: white;
     text-transform: lowercase;
-    font-size: 35px;
+    font-size: 30px;
     padding-left: 5%;
     margin-top: 1%;
+    font-weight: lighter;
     font-family: Papyrus;
+    text-shadow: 0 1px 1px #505050, -1px 0px 1px #767676, -2px 3px 1px #000000, -3px 4px 1px #000000, -4px 4px 1px #000000;
 }
 
 .quote-text-quote {
@@ -135,55 +243,31 @@ body {
     color: white;
     padding-left: 5%;
     font-size: 19px;
-    font-family: Papyrus;
+    font-family: Roboto;
     margin-top: 1%;
 }
 
 .quote-text-tags {
     color: #878787;
-    padding-left: 5%;
+    margin-left: 5%;
     font-size: 14px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-top: 1%;
 }
 
-/* ================= card style ================= */
-.card-text {
-    text-overflow: ellipsis !important;
-    white-space: nowrap;
-    overflow: hidden;
-}
+/* ******* Book ******* */
 
-.card-title {
-    text-overflow: ellipsis !important;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.home-card-style {
-    transition: ease-in-out 0.3s;
-    cursor: pointer;
-    -webkit-box-shadow: 10px 4px 29px -1px rgba(0,0,0,0.43);
-    -moz-box-shadow: 10px 4px 29px -1px rgba(0,0,0,0.43);
-    box-shadow: 10px 4px 29px -1px rgba(0,0,0,0.43);
-}
-
-    .home-card-style:hover {
-        transform: scale(1.1);
-        transition: ease-in-out 0.3s;
-    }
-/* ================= card style - end ================= */
-
-/* ************ Book ************ */
 .btn-add-new-custom {
     float: right !important;
+    cursor: pointer !important;
 }
 
-a:not([href]):not([tabindex]).btn-add-new-custom {
-    color: white !important;
-}
+    .btn-add-new-custom:hover {
+        transform: scale(1.05);
+        transition: 0.1s;
+    }
 
-/* ************ Footer ************ */
+/* ******* FOOTER ******* */
 .footer {
     position: absolute;
     bottom: 0;
@@ -192,9 +276,52 @@ a:not([href]):not([tabindex]).btn-add-new-custom {
     line-height: 60px; /* Vertically center the text there */
 }
 
-/* ************ @MEDIA'S ************ */
+
+/* ******************** @MEDIAS ******************** */
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
+}
+
+/* ******************** HOME INDEX CARDS ******************** */
+
+.card .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card:hover .image img {
+    opacity: .5;
+    transform: translateX(15%); /*100%*/
+    transition: 1.5s;
+}
+
+.card .card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%; /*100%*/
+    height: 100%;
+    background: #f8f9fa;
+    transition: .5s;
+    transform-origin: left;
+    transform: perspective(2000px) rotateY(-90deg);
+}
+
+.card:hover .card-body, .card:hover .price {
+    transform: perspective(2000px) rotateY(0deg);
+}
+
+.price {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 30%; /*100%*/
+    height: 10%;
+    font-size: 1rem;
+    transition: .5s;
+    transform-origin: right;
+    transform: perspective(2000px) rotateY(-90deg);
 }

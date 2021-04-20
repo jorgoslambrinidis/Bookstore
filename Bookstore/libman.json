@@ -9,6 +9,10 @@
     {
       "library": "jquery-validate@1.19.2",
       "destination": "wwwroot/jquery-validate/"
+    },
+    {
+      "library": "animate.css@4.1.1",
+      "destination": "wwwroot/css/animate.css/"
     }
   ]
 }
