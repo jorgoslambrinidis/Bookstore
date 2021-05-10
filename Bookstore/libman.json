@@ -13,6 +13,14 @@
     {
       "library": "animate.css@4.1.1",
       "destination": "wwwroot/css/animate.css/"
+    },
+    {
+      "library": "noty@3.1.4",
+      "destination": "wwwroot/noty/"
+    },
+    {
+      "library": "moment.js@2.29.1",
+      "destination": "wwwroot/moment.js/"
     }
   ]
 }

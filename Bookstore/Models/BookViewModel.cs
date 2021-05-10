@@ -1,11 +1,9 @@
 ﻿namespace Bookstore.Models
 {
-    using Bookstore.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Threading.Tasks;
+    using Bookstore.Entities;
 
     public class BookViewModel
     {
@@ -132,7 +130,30 @@
 
         [StringLength(50)]
         public string PublisherYearDTO { get; set; }
-        
+
+        #endregion
+
+        #region Wishlist Data
+        public double WishlistTotalPrice { get; set; }
+
+        #endregion
+
+        #region Shopping Cart Data
+        public int AddToCartTotalCounter { get; set; }
+        #endregion
+
+        #region Search
+        public string SearchString { get; set; }
+        #endregion
+
+        #region Other Landing Page Data
+
+        public IEnumerable<Book> TopPopularBooks { get; set; }
+        public IEnumerable<Book> TopPopularBooksByBestSellingAuthor { get; set; }
+        public Author BestSellingAuthor { get; set; }
+        public IEnumerable<Book> AllBooks { get; set; }
+        public IEnumerable<Book> AllBooksFromWishlistByLoggedInUser { get; set; }
+
         #endregion
     }
 }

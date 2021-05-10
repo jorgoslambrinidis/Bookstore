@@ -53,17 +53,26 @@
                         <p class="card-text">Category: @Html.DisplayFor(modelItem => book.CategoryName)</p>
                         <p class="card-text">Genre: @Html.DisplayFor(modelItem => book.Genre)</p>
                         <p class="card-text">Book Rating: @Html.DisplayFor(modelItem => book.Rating)/5.0</p>
-                        @if (ViewContext.HttpContext.User.IsInRole("guest") || ViewContext.HttpContext.User.IsInRole("editor") || ViewContext.HttpContext.User.IsInRole("admin"))
+                        @*@if (ViewContext.HttpContext.User.IsInRole("guest") || ViewContext.HttpContext.User.IsInRole("editor") || ViewContext.HttpContext.User.IsInRole("admin"))
+                            {
+                                <button class="btn btn-secondary btn-block"><i class="fas fa-plus-circle"></i> Add to Wishlist</button>
+                                <button class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                            }*@
+                        @if (Context.User.Identity.IsAuthenticated)
                         {
-                            <button class="btn btn-secondary btn-block"><i class="fas fa-plus-circle"></i> Add to Wishlist</button>
-                            <button class="btn btn-success btn-block"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+                            <button class="btn btn-secondary btn-block" id="addToWishlistFromPopular" onclick="AddToWishlist(@book.Id)">
+                                <i class="fas fa-plus"></i> &nbsp; Add To Wishlist
+                            </button>
+                            <button class="btn btn-success btn-block" id="addToCartFromPopular" onclick="AddToCart(@book.Id)">
+                                <i class="fas fa-cart-plus"></i> &nbsp; Add To Cart
+                            </button>
                         }
-                        else
+                        @*else
                         {
                             <a class="btn btn-secondary btn-block text-light text-decoration-none" asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-plus-circle"></i> Add to Wishlist</a>
 
                             <a class="btn btn-success btn-block text-light text-decoration-none" asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-cart-plus"></i> Add to Cart</a>
-                        }
+                        }*@
                     </div>
                     <div class="price text-center">
                         <p class="w-75 mx-auto card-text bg-light text-success font-weight-bold rounded-pill animate__animated animate__heartBeat animate__infinite animate__faster">@Html.DisplayFor(modelItem => book.Price)&euro;</p>

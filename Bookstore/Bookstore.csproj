@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bookstore.API\Bookstore.API.csproj" />
     <ProjectReference Include="..\Bookstore.Data\Bookstore.Data.csproj" />
     <ProjectReference Include="..\Bookstore.Repository\Bookstore.Repository.csproj" />
     <ProjectReference Include="..\Bookstore.Service\Bookstore.Service.csproj" />

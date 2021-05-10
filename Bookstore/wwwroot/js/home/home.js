@@ -89,3 +89,54 @@ function GetRandomBook() {
     })
 }
 
+function AddToWishlist(id) {
+    $.ajax({
+        type: "POST",
+        url: "/Home/AddToWishlist/" + id,
+        success: function (data) {
+            //console.log(data);
+            if (data.data != "") {
+                new Noty({
+                    type: 'alert',
+                    layout: 'bottomLeft',
+                    timeout: 3000,
+                    text: 'Successfully Added To Wishlist',
+                    theme: 'sunset'
+                }).show();
+            } else {
+                new Noty({
+                    type: 'error',
+                    layout: 'bottomLeft',
+                    timeout: 3000,
+                    progressBar: true,
+                    text: 'Book Already Exists In The Wishlist',
+                    theme: 'sunset'
+                }).show();
+            }
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+};
+
+function AddToCart(id) {
+    $.ajax({
+        type: "POST",
+        url: "/ShoppingCart/AddToCart/" + id,
+        success: function (data) {
+            console.log("Success");
+            console.log(data);
+            new Noty({
+                type: 'success',
+                layout: 'bottomLeft',
+                timeout: 3000,
+                text: 'Added To Cart',
+                theme: 'sunset'
+            }).show();
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+}

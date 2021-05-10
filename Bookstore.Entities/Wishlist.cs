@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace Bookstore.Entities
+﻿namespace Bookstore.Entities
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;  
+
     public class Wishlist
     {
         [Key]
@@ -13,6 +11,7 @@ namespace Bookstore.Entities
         public int BookId { get; set; }
         public int AuthorId { get; set; }
         public int CategoryId { get; set; }
+        //public int PublisherId { get; set; }
         public DateTime DateAdded { get; set; }
     }
 }
